@@ -7,7 +7,7 @@ import {
   mount,
   configure,
 } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
 import Month from '../src/js/components/month';
@@ -18,7 +18,7 @@ import {
   DEFAULT_TIMESLOTS,
   DEFAULT_TIMESLOT_FORMAT,
   DEFAULT_TIMESLOT_SHOW_FORMAT,
- } from '../src/js/constants/day';
+} from '../src/js/constants/day';
 
 const cal = new Calendar(2017, 4);
 
@@ -27,20 +27,20 @@ describe('Render tests', () => {
     const weeks = cal.generate();
     const tree = renderer.create(
       <Month
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weeks = { weeks }
-        currentDate = { moment([2017, 3, 1]) }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weeks={weeks}
+        currentDate={moment([2017, 3, 1])}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     )
-    .toJSON();
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -50,21 +50,21 @@ describe('Render tests', () => {
     const onWeekOutOfMonth = sinon.spy();
     const tree = renderer.create(
       <Month
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weeks = { weeks }
-        currentDate = { moment([2017, 3, 1]) }
-        initialDate = { moment([2017, 3, 28]) }
-        onWeekOutOfMonth = { onWeekOutOfMonth }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weeks={weeks}
+        currentDate={moment([2017, 3, 1])}
+        initialDate={moment([2017, 3, 28])}
+        onWeekOutOfMonth={onWeekOutOfMonth}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     )
-    .toJSON();
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -76,17 +76,17 @@ describe('Functionality tests', () => {
     const currentDate = moment([2017, 3, 1]);
     const component = mount(
       <Month
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weeks = { weeks }
-        currentDate = { currentDate }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weeks={weeks}
+        currentDate={currentDate}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     );
 
@@ -112,18 +112,18 @@ describe('Functionality tests', () => {
     const onWeekOutOfMonth = sinon.spy();
     const component = mount(
       <Month
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weeks = { weeks }
-        currentDate = { currentDate }
-        initialDate = { moment([2017, 3, 28]) }
-        onWeekOutOfMonth = { onWeekOutOfMonth }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weeks={weeks}
+        currentDate={currentDate}
+        initialDate={moment([2017, 3, 28])}
+        onWeekOutOfMonth={onWeekOutOfMonth}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     );
 
@@ -137,18 +137,18 @@ describe('Functionality tests', () => {
     const onWeekOutOfMonth = sinon.spy();
     const component = mount(
       <Month
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weeks = { weeks }
-        currentDate = { currentDate }
-        initialDate = { moment([2017, 3, 28]) }
-        onWeekOutOfMonth = { onWeekOutOfMonth }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weeks={weeks}
+        currentDate={currentDate}
+        initialDate={moment([2017, 3, 28])}
+        onWeekOutOfMonth={onWeekOutOfMonth}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     );
 
@@ -161,17 +161,17 @@ describe('Functionality tests', () => {
     const currentDate = moment([2017, 3, 1]).startOf('month');
     const component = mount(
       <Month
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weeks = { weeks }
-        currentDate = { currentDate }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weeks={weeks}
+        currentDate={currentDate}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     );
     const weekIndexBeforeClick = component.state().currentWeekIndex;
@@ -185,17 +185,17 @@ describe('Functionality tests', () => {
     const currentDate = moment([2017, 3, 1]).endOf('month');
     const component = mount(
       <Month
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weeks = { weeks }
-        currentDate = { currentDate }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weeks={weeks}
+        currentDate={currentDate}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     );
 

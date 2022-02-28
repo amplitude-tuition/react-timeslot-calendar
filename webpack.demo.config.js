@@ -4,7 +4,7 @@ const hljs = require('highlight.js');
 const marked = require('marked');
 
 const renderer = new marked.Renderer();
-renderer.code = function(code, language){
+renderer.code = function (code, language) {
   return '<pre><code class="hljs ' + language + '">' +
     hljs.highlight(language, code).value +
     '</code></pre>';

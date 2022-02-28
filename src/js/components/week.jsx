@@ -8,7 +8,7 @@ export default class Week extends React.Component {
 
     return (
       <div className = 'tsc-week'>
-        { this._renderWeekDays() }
+        {this._renderWeekDays()}
       </div>
     );
   }
@@ -27,7 +27,7 @@ export default class Week extends React.Component {
     return weekToRender.map((day, index) => {
       let formattedDate = helpers.getMomentFromCalendarJSDateElement(day);
       const weekDay = formattedDate.format('dddd').toLowerCase();
-      if (renderDays[weekDay]){
+      if (renderDays[weekDay]) {
         return (
           <Day
             key = { index }
@@ -38,7 +38,7 @@ export default class Week extends React.Component {
             selectedTimeslots = { selectedTimeslots }
             disabledTimeslots = { disabledTimeslots }
             momentTime = { formattedDate }
-            />
+          />
         );
       }
     });
@@ -67,7 +67,7 @@ Week.propTypes = {
   weekToRender: PropTypes.array.isRequired,
   onTimeslotClick: PropTypes.func.isRequired,
   initialDate: PropTypes.object.isRequired,
-  timeslots : PropTypes.array.isRequired,
+  timeslots: PropTypes.array.isRequired,
   timeslotProps: PropTypes.object,
   selectedTimeslots: PropTypes.array,
   disabledTimeslots: PropTypes.array,

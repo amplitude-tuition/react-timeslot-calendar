@@ -8,7 +8,7 @@ import {
   mount,
   configure,
 } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
 import Week from '../src/js/components/week';
@@ -32,20 +32,20 @@ describe('Render tests', () => {
 
     const tree = renderer.create(
       <Week
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weekToRender = { weeks[0] }
-        onTimeslotClick = { onClickSpy }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weekToRender={weeks[0]}
+        onTimeslotClick={onClickSpy}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     )
-    .toJSON();
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -56,17 +56,17 @@ describe('Render tests', () => {
 
     const component = mount(
       <Week
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weekToRender = { weeks[0].slice(0, 3) }
-        onTimeslotClick = { onClickSpy }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weekToRender={weeks[0].slice(0, 3)}
+        onTimeslotClick={onClickSpy}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     );
 
@@ -81,17 +81,17 @@ describe('Render tests', () => {
 
     const component = mount(
       <Week
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weekToRender = { weeks[0] }
-        onTimeslotClick = { onClickSpy }
-        initialDate = { moment([2017, 1, 1]) }
-        selectedTimeslots = { [] }
-        renderDays = { RENDER_DAYS }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weekToRender={weeks[0]}
+        onTimeslotClick={onClickSpy}
+        initialDate={moment([2017, 1, 1])}
+        selectedTimeslots={[]}
+        renderDays={RENDER_DAYS}
       />
     );
 
@@ -107,17 +107,17 @@ describe('Render tests', () => {
 
     const component = mount(
       <Week
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        weekToRender = { weeks[0] }
-        onTimeslotClick = { onClickSpy }
-        initialDate = { moment([2017, 1, 1]) }
-        selectedTimeslots = { [] }
-        renderDays = { {
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        weekToRender={weeks[0]}
+        onTimeslotClick={onClickSpy}
+        initialDate={moment([2017, 1, 1])}
+        selectedTimeslots={[]}
+        renderDays={{
           sunday: false,
           monday: false,
           tuesday: true,
@@ -125,7 +125,7 @@ describe('Render tests', () => {
           thursday: true,
           friday: false,
           saturday: false,
-        } }
+        }}
       />
     );
 

@@ -7,7 +7,7 @@ import {
   shallow,
   configure,
 } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
 import Calendar from '../src/js/components/calendar';
@@ -18,11 +18,11 @@ describe('Render tests', () => {
   test('Renders Correctly.', () => {
     const tree = renderer.create(
       <Calendar
-        initialDate = { moment([2017, 3, 28]).format() }
-        timeslots = { DEFAULT_TIMESLOTS }
+        initialDate={moment([2017, 3, 28]).format()}
+        timeslots={DEFAULT_TIMESLOTS}
       />
     )
-    .toJSON();
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -30,8 +30,8 @@ describe('Render tests', () => {
   test('Expect timeslot selection to function with min props', () => {
     const component = mount(
       <Calendar
-        initialDate = { moment().format() }
-        timeslots = { DEFAULT_TIMESLOTS }
+        initialDate={moment().format()}
+        timeslots={DEFAULT_TIMESLOTS}
       />
     );
 
@@ -44,13 +44,13 @@ describe('Render tests', () => {
   test('Expects a maximum of 2 selected timeslots', () => {
     const component = mount(
       <Calendar
-        initialDate = { moment().format() }
-        timeslots = { DEFAULT_TIMESLOTS }
-        maxTimeslots = { 2 }
+        initialDate={moment().format()}
+        timeslots={DEFAULT_TIMESLOTS}
+        maxTimeslots={2}
       />
     );
 
-    const timeslots = component.find('.tsc-timeslot').not('.tsc-timeslot--disabled').slice(0,5);
+    const timeslots = component.find('.tsc-timeslot').not('.tsc-timeslot--disabled').slice(0, 5);
     timeslots.forEach((timeslot) => {
       timeslot.simulate('click');
     });
@@ -62,13 +62,13 @@ describe('Render tests', () => {
     const onSelectTimeslot = sinon.spy();
     const component = mount(
       <Calendar
-        initialDate = { moment().format() }
-        timeslots = { DEFAULT_TIMESLOTS }
-        onSelectTimeslot = { onSelectTimeslot }
+        initialDate={moment().format()}
+        timeslots={DEFAULT_TIMESLOTS}
+        onSelectTimeslot={onSelectTimeslot}
       />
     );
 
-    const timeslots = component.find('.tsc-timeslot').not('.tsc-timeslot--disabled').slice(0,5);
+    const timeslots = component.find('.tsc-timeslot').not('.tsc-timeslot--disabled').slice(0, 5);
     let clickCount = 0;
     timeslots.forEach((timeslot) => {
       timeslot.simulate('click');
@@ -81,8 +81,8 @@ describe('Render tests', () => {
   test('Expects 2 input elements after clicking a timeslot with min props.', () => {
     const component = mount(
       <Calendar
-        initialDate = { moment().format() }
-        timeslots = { DEFAULT_TIMESLOTS }
+        initialDate={moment().format()}
+        timeslots={DEFAULT_TIMESLOTS}
       />
     );
 
@@ -97,11 +97,11 @@ describe('Render tests', () => {
   test('Expects 2 input elements with 1 custom name after clicking a timeslot', () => {
     const component = mount(
       <Calendar
-        initialDate = { moment().format() }
-        timeslots = { DEFAULT_TIMESLOTS }
-        startDateInputProps = { {
+        initialDate={moment().format()}
+        timeslots={DEFAULT_TIMESLOTS}
+        startDateInputProps={{
           name: 'custom-startDate',
-        } }
+        }}
       />
     );
 
@@ -116,13 +116,13 @@ describe('Render tests', () => {
   test('Expects 4 input elements after clicking multiple timeslots', () => {
     const component = mount(
       <Calendar
-        initialDate = { moment().format() }
-        timeslots = { DEFAULT_TIMESLOTS }
-        maxTimeslots = { 2 }
+        initialDate={moment().format()}
+        timeslots={DEFAULT_TIMESLOTS}
+        maxTimeslots={2}
       />
     );
 
-    const timeslots = component.find('.tsc-timeslot').not('.tsc-timeslot--disabled').slice(0,5);
+    const timeslots = component.find('.tsc-timeslot').not('.tsc-timeslot--disabled').slice(0, 5);
     timeslots.forEach((timeslot) => {
       timeslot.simulate('click');
     });
@@ -135,9 +135,9 @@ describe('Render tests', () => {
   test('Expects 3 disabled timeslots based on props sent.', () => {
     const component = mount(
       <Calendar
-        initialDate = { moment([2017, 3, 30]).format() }
-        timeslots = { DEFAULT_TIMESLOTS }
-        disabledTimeslots = { [
+        initialDate={moment([2017, 3, 30]).format()}
+        timeslots={DEFAULT_TIMESLOTS}
+        disabledTimeslots={[
           {
             startDate: 'April 30th 2017, 12:00:00 AM',
             endDate: 'April 30th 2017, 1:00:00 AM',
@@ -153,7 +153,7 @@ describe('Render tests', () => {
             endDate: 'May 5th 2017, 7:00:00 PM',
             format: 'MMMM Do YYYY, h:mm:ss A',
           },
-        ] }
+        ]}
       />
     );
 

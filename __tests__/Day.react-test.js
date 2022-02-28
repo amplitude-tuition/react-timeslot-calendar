@@ -7,7 +7,7 @@ import {
   mount,
   configure,
 } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
 import Day from '../src/js/components/day';
@@ -23,19 +23,19 @@ describe('Render tests', () => {
     const onClickSpy = sinon.spy();
     const tree = renderer.create(
       <Day
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        onTimeslotClick = { onClickSpy }
-        momentTime = { moment([2017, 3, 28]) }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        onTimeslotClick={onClickSpy}
+        momentTime={moment([2017, 3, 28])}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
       />
     )
-    .toJSON();
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -50,19 +50,19 @@ describe('Render tests', () => {
 
     const tree = renderer.create(
       <Day
-        timeslots = { timeslots }
-        timeslotProps = { {
+        timeslots={timeslots}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        onTimeslotClick = { onClickSpy }
-        momentTime = { moment([2017, 3, 28]) }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        onTimeslotClick={onClickSpy}
+        momentTime={moment([2017, 3, 28])}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
       />
     )
-    .toJSON();
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -77,19 +77,19 @@ describe('Render tests', () => {
 
     const tree = renderer.create(
       <Day
-      timeslots = { timeslots }
-      timeslotProps = { {
-        format: DEFAULT_TIMESLOT_FORMAT,
-        showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-      } }
-      disabledTimeslots = { [] }
-      onTimeslotClick = { onClickSpy }
-      momentTime = { moment([2017, 3, 28]) }
-      initialDate = { moment([2017, 3, 28]) }
-      selectedTimeslots = { [] }
+        timeslots={timeslots}
+        timeslotProps={{
+          format: DEFAULT_TIMESLOT_FORMAT,
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        onTimeslotClick={onClickSpy}
+        momentTime={moment([2017, 3, 28])}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
       />
     )
-    .toJSON();
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -101,17 +101,17 @@ describe('Functionality tests', () => {
     const renderTitleSpy = sinon.spy();
     const component = mount(
       <Day
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        onTimeslotClick = { onClickSpy }
-        renderTitle = { renderTitleSpy }
-        momentTime = { moment([2017, 3, 28]) }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        onTimeslotClick={onClickSpy}
+        renderTitle={renderTitleSpy}
+        momentTime={moment([2017, 3, 28])}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
       />
     );
 
@@ -122,16 +122,16 @@ describe('Functionality tests', () => {
     const onClickSpy = sinon.spy();
     const component = mount(
       <Day
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        onTimeslotClick = { onClickSpy }
-        momentTime = { moment([2017, 3, 28]) }
-        initialDate = { moment([2017, 3, 27]) }
-        selectedTimeslots = { [] }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        onTimeslotClick={onClickSpy}
+        momentTime={moment([2017, 3, 28])}
+        initialDate={moment([2017, 3, 27])}
+        selectedTimeslots={[]}
       />
     );
 
@@ -145,16 +145,16 @@ describe('Functionality tests', () => {
     const onClickSpy = sinon.spy();
     const component = shallow(
       <Day
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        onTimeslotClick = { onClickSpy }
-        momentTime = { moment([2017, 3, 28]) }
-        initialDate = { moment([2017, 1, 1]) }
-        selectedTimeslots = { [] }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        onTimeslotClick={onClickSpy}
+        momentTime={moment([2017, 3, 28])}
+        initialDate={moment([2017, 1, 1])}
+        selectedTimeslots={[]}
       />
     );
 
@@ -171,16 +171,16 @@ describe('Functionality tests', () => {
     ];
     const component = shallow(
       <Day
-        timeslots = { timeslots }
-        timeslotProps = { {
+        timeslots={timeslots}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        onTimeslotClick = { onClickSpy }
-        momentTime = { moment([2017, 3, 28]) }
-        initialDate = { moment([2017, 3, 28]) }
-        selectedTimeslots = { [] }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        onTimeslotClick={onClickSpy}
+        momentTime={moment([2017, 3, 28])}
+        initialDate={moment([2017, 3, 28])}
+        selectedTimeslots={[]}
       />
     );
 
@@ -193,16 +193,16 @@ describe('Functionality tests', () => {
     const onClickSpy = sinon.spy();
     const component = mount(
       <Day
-        timeslots = { DEFAULT_TIMESLOTS }
-        timeslotProps = { {
+        timeslots={DEFAULT_TIMESLOTS}
+        timeslotProps={{
           format: DEFAULT_TIMESLOT_FORMAT,
-          showFormat:DEFAULT_TIMESLOT_SHOW_FORMAT,
-        } }
-        disabledTimeslots = { [] }
-        onTimeslotClick = { onClickSpy }
-        momentTime = { moment([2017, 3, 28]) }
-        initialDate = { moment([2017, 3, 28, 11]) }
-        selectedTimeslots = { [] }
+          showFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
+        }}
+        disabledTimeslots={[]}
+        onTimeslotClick={onClickSpy}
+        momentTime={moment([2017, 3, 28])}
+        initialDate={moment([2017, 3, 28, 11])}
+        selectedTimeslots={[]}
       />
     );
 

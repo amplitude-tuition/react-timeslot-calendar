@@ -1,12 +1,12 @@
 @import "../abstract/variables";
-body, {
+body {
   margin: 0;
   padding: 0;
 }
 
 body,
 html,
-#react-timeslot-calendar, {
+#react-timeslot-calendar {
   min-height: 100%;
 }
 

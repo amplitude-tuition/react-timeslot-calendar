@@ -12,7 +12,10 @@ module.exports = {
   },
   plugins: [
     new WebpackBundleSizeAnalyzerPlugin('./reports/plain-report.txt'),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^\.\/locale$/,
+      contextRegExp: /moment$/,
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production'),
@@ -20,25 +23,58 @@ module.exports = {
     }),
   ],
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.s[ac]ss$/i,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              // Prefer `dart-sass`
+              implementation: require('sass'),
+              sassOptions: {
+                fiber: require('fibers'),
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.js|\.jsx$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
         },
       },
       {
-        test: /\.scss$/,
-        use: [{
-          loader: 'style-loader', // creates style nodes from JS strings
-        }, {
-          loader: 'css-loader', // translates CSS into CommonJS
-        }, {
-          loader: 'sass-loader', // compiles Sass to CSS
-        }],
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       },
     ],
+    // loaders: [
+    //   {
+    //     test: /\.jsx?$/,
+    //     exclude: /node_modules/,
+    //     loader: 'babel-loader',
+    // query: {
+    //   presets: ['react', 'es2015'],
+    // },
+    //   },
+    //   {
+    //     test: /\.scss$/,
+    //     use: [{
+    //       loader: 'style-loader', // creates style nodes from JS strings
+    //     }, {
+    //       loader: 'css-loader', // translates CSS into CommonJS
+    //     }, {
+    //       loader: 'sass-loader', // compiles Sass to CSS
+    //     }],
+    //   },
+    // ],
   },
 };
