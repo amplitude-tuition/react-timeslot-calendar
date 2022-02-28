@@ -61,6 +61,6 @@
     "moment": "^2.18.1"
   },
   "peerDependencies": {
-    "react": "^15.5.4"
+    "react": "^16.9.0"
   }
 }
